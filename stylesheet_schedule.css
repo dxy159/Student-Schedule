@@ -1,0 +1,65 @@
+body {
+	background-color: #DCDCDC;
+	margin:0px 0px 0px 0px;
+}
+
+h2 {
+	font-family: Verdana;
+	font-weight: bold;
+	text-align: center;
+	padding-top:0px;
+	padding-bottom:25px;
+	color: #acd1b2;
+}
+
+a:link {
+	text-decoration:none;
+	color:#ffffff
+}
+
+
+a:visited {
+	text-decoration:none; 
+	color:#ffffff
+}
+
+
+a:hover {
+	font-weight: bold; 
+}
+
+#table{
+	margin-top: 20px;
+	margin-left:30%;
+	}
+
+td{
+	border:2px solid black;
+	padding-right:10px;
+	padding-left:10px;
+	text-color: #ffffff;
+	padding:5px 15px 5px 15px;
+	background-color:#808080;
+}
+
+#main {
+	position: relative;
+	top: -10px;
+	background-color: #3c4543;
+
+}
+
+.btn{
+	margin-left:43%;
+	font-size:2em;
+	padding:15px;
+	
+	
+
+}
+
+#demo{
+	padding-left:42%;
+	font-size:3em;
+
+}
