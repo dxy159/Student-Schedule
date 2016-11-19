@@ -39,10 +39,26 @@ class course(object):
 
 with open('studentsByAvailability.json') as data_file:    
     availability = json.load(data_file)
-pprint(availability)
+pprint(availability['1'][1]['avail1']['start'])
 list_students =[]
-for i in range(1,81):
-	
+
+print len(availability[str(1)][1])
+for i in range(1,81): 
+	for j in range(1,len(availability[str(i)][1])+1):
+		stri = availability[str(i)][1]['avail'+str(j)]['start']
+		if stri.find('am') != -1:
+			lis = stri.split('a')
+			stri = lis[0]
+		elif stri.find('pm') != -1:
+			lis = stri.split('p')
+			lis1 = lis[0].split(":")
+			lis1[0] = int(lis1[0]) 
+			if lis1[0] != 12:
+				lis1[0] = lis1[0] + 12
+			lis[0] = str(lis1[0]) + ":" + lis1[1]
+			stri = lis[0]
+		print (stri)
+
 	var = student(availability[str(i)][0], availability[str(i)][1])
 	list_students = list_students +[var]
 
@@ -55,19 +71,21 @@ list_classes = []
 for i in range(101,111):
 	list_classes = list_classes + [course(i, classes['classes'][str(i)]['name'], classes['classes'][str(i)]['times']['time1'], classes['classes'][str(i)]['times']['time2'])]
 
-print list_classes[0].time2['start']
-
-
-
 """first student"""
+print list_classes[0].time1['start']
 
-
+for i in range(10):
+	#if list_students[0].avail['avail1']['start'].find('pm') == -1:
+	#	print""
+	#else :
+	#	lists = list_students[0].avail['avail1']['start'].split(':')
+	#	list[0] = int(list[0])
+	#	if lists[0] != 12: 
+		
+		
+	 	
+	if list_students[0].avail['avail1']['start'] <= list_classes[i].time1['start'] and list_students[0].avail['avail1']['end'] >= list_classes[i].time1['end']:
+		print 'true'	
 	
-if (student[0].avail['avail1']['start'] <= classes[0].time1['start']) and (student[0].avail['avail1']['end'] >= classes[0].time1['end']) : 
-	"""	student[0].free1[0] = True"""
 
-if student[0].avail['avail1']['start'] <= classes[0].time2['start'] and student[0].avail['avail1']['end'] >= classes[0].time2['end'] :
-	student[0].free2[0] = True
 
-print student[0].free1
-print student[0].free2
